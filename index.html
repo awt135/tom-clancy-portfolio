@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="汤姆克兰德 - AI 科技工作者 | Artificial Intelligence Researcher">
+    <title>汤姆克兰德 | AI 科技工作者</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        .location {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .skill-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .skill-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-card p {
+            opacity: 0.95;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .main-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-content {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-avatar">🤖</div>
+            <h1>汤姆克兰德</h1>
+            <p class="tagline">AI 科技工作者 | Artificial Intelligence Researcher</p>
+            <p class="location">📍 纽约市 | New York City</p>
+        </header>
+
+        <main class="main-content">
+            <section class="about">
+                <h2>关于我</h2>
+                <div class="about-text">
+                    <p>
+                        我是一名专注于人工智能领域的科技工作者，热衷于探索深度学习、自然语言处理和机器学习的前沿技术。
+                        致力于将 AI 技术转化为实用的解决方案，推动人工智能在日常生活中的应用。
+                    </p>
+                    <br>
+                    <p>
+                        我相信人工智能将重塑我们的未来，而我希望成为这场变革的参与者和推动者。
+                        无论是研究复杂的算法，还是构建用户友好的应用，我都充满激情和专注。
+                    </p>
+                </div>
+            </section>
+
+            <section class="skills">
+                <h2>专业技能</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>🧠 深度学习</h3>
+                        <p>神经网络、CNN、RNN、Transformer</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>💬 自然语言处理</h3>
+                        <p>文本分析、语义理解、对话系统</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>🔍 机器学习</h3>
+                        <p>监督学习、无监督学习、强化学习</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>💻 编程语言</h3>
+                        <p>Python、PyTorch、TensorFlow</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>🤖 计算机视觉</h3>
+                        <p>图像识别、目标检测、图像生成</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>📊 数据科学</h3>
+                        <p>数据分析、可视化、数据挖掘</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="projects">
+                <h2>项目展示</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>🤖 AI 聊天机器人</h3>
+                        <p>基于 Transformer 架构的智能对话系统，支持多轮对话和上下文理解。</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">NLP</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>🔎 智能搜索引擎</h3>
+                        <p>利用机器学习算法优化搜索结果排序，提供更精准的检索体验。</p>
+                        <div class="project-tags">
+                            <span class="tag">ElasticSearch</span>
+                            <span class="tag">ML</span>
+                            <span class="tag">Ranking</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>🎨 AI 图像生成器</h3>
+                        <p>基于 GAN 模型的图像生成工具，可创建高质量的艺术作品。</p>
+                        <div class="project-tags">
+                            <span class="tag">GAN</span>
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">Art</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact">
+                <h2>联系方式</h2>
+                <div class="contact-links">
+                    <a href="mailto:tom.clancy@example.com" class="contact-btn">📧 Email</a>
+                    <a href="https://github.com/tomclancy188" class="contact-btn">💻 GitHub</a>
+                    <a href="https://linkedin.com/in/tomclancy" class="contact-btn">💼 LinkedIn</a>
+                    <a href="https://twitter.com/tomclancy" class="contact-btn">🐦 Twitter</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 汤姆克兰德 | 用 ❤️ 和 AI 构建</p>
+        </footer>
+    </div>
+</body>
+</html>
