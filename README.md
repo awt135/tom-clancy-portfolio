@@ -1,6 +1,6 @@
-# 汤姆克兰德个人主页 🤖
+# 汤姆克兰德个人主页
 
-> AI 科技工作者的个人展示网站 - Web 2.0 风格
+> AI 科技工作者的个人展示网站 - iOS 小清新风格
 
 ## 🌐 访问地址
 
@@ -13,26 +13,43 @@
 ### 主要内容
 
 - **关于我**：个人简介和职业背景
-- **我的超能力**：深度学习、自然语言处理、机器学习等 6 大技能板块
-- **我的项目**：AI 聊天机器人、智能搜索引擎、图像生成器
-- **找我聊聊**：Email、GitHub、LinkedIn、Twitter
+- **技能**：深度学习、自然语言处理、机器学习等 6 大技能板块
+- **项目**：AI 聊天机器人、智能搜索引擎、图像生成器
+- **联系**：Email、GitHub、LinkedIn、Twitter
 
-## 🎨 设计风格
+## 🎨 iOS 设计风格
 
-### Web 2.0 特点
+### 设计特点
 
-- ✨ **明快配色**：浅蓝、青绿、橙色、粉色渐变
-- 🌈 **柔和渐变**：多层渐变背景，视觉舒适
-- 🎭 **小情绪设计**：活泼的 emoji 表情，亲切友好
-- 🔵 **圆角卡片**：柔和的圆角设计，减少尖锐感
-- 💫 **流畅动画**：hover 效果和滚动动画，生动活泼
-- 📱 **响应式布局**：完美适配移动端和桌面端
+- 🍎 **Apple 风格**：遵循 Apple Human Interface Guidelines
+- 💎 **毛玻璃效果**：导航栏采用 backdrop-filter blur
+- 🔵 **圆角设计**：20px 大圆角卡片
+- 🎯 **极简主义**：大量留白，简洁优雅
+- ✨ **细腻阴影**：多层次阴影系统
+- 🌈 **小清新配色**：柔和明亮的色彩
+- 📱 **完美适配**：响应式设计，iOS 原生体验
 
 ### 颜色方案
 
-- **主色调**：#3498db（明亮蓝色）
-- **辅助色**：#1abc9c（青绿色）、#f39c12（橙色）、#e91e63（粉色）
-- **背景渐变**：#e0f7fa → #b2ebf2（浅青色渐变）
+- **背景色**：#f5f5f7（Apple 浅灰）
+- **卡片背景**：#ffffff（纯白）
+- **主色调**：#007AFF（iOS 蓝）
+- **辅助色**：
+  - 浅蓝：#5ac8fa
+  - 绿色：#34c759
+  - 橙色：#ff9500
+  - 粉色：#ff2d55
+- **文字色**：#1d1d1f（深灰）、#86868b（浅灰）
+
+### iOS 风格元素
+
+- ✅ 毛玻璃导航栏（滚动时背景变化）
+- ✅ 大圆角卡片（20px）
+- ✅ 柔和阴影系统（sm/md/lg）
+- ✅ Apple 系统字体（-apple-system）
+- ✅ 流畅的动画效果
+- ✅ 圆形按钮（50px 圆角）
+- ✅ 细腻的悬停效果
 
 ## 🚀 技术栈
 
@@ -40,17 +57,20 @@
 - **jQuery**：交互效果和动画
 - **Bootstrap Icons**：图标库
 - **HTML5 & CSS3**：页面结构和样式
+- **CSS 变量**：主题配置
 - **GitHub Pages**：静态网站托管
 
 ## ✨ 功能特性
 
-- ✅ 固定顶部导航栏，滚动跟随
+- ✅ 毛玻璃固定导航栏
+- ✅ 滚动时导航栏背景变化
 - ✅ 平滑滚动效果
-- ✅ 滚动时的元素淡入动画
+- ✅ 淡入动画（页面加载）
 - ✅ 悬停卡片动画效果
 - ✅ 彩色标签系统
-- ✅ 弹跳 emoji 动画
 - ✅ 完全响应式设计
+- ✅ iOS 原生字体
+- ✅ 细腻的阴影层次
 - ✅ SEO 优化
 
 ## 📦 部署
@@ -74,47 +94,107 @@ npx serve
 
 ## 🎯 自定义
 
+### 修改配色方案
+
+编辑 `<style>` 中的 CSS 变量：
+
+```css
+:root {
+    --bg-color: #f5f5f7;
+    --card-bg: #ffffff;
+    --primary-color: #007AFF;
+    --secondary-color: #5ac8fa;
+    /* ... 其他颜色 */
+}
+```
+
 ### 修改个人信息
 
 编辑 `index.html` 中的：
-- `<h1>`：你的名字
+- `.hero-title`：你的名字
 - `.hero-location`：你的位置
 - `.about-text`：个人简介
-- `.skill-card`：技能卡片内容
+- `.skill-item`：技能卡片内容
 - `.project-card`：项目卡片内容
 
-### 更改颜色
+### 调整圆角大小
 
-修改 `<style>` 中的 CSS 变量：
+修改全局圆角变量：
+
+```css
+.ios-card {
+    border-radius: 20px; /* 调整这个值 */
+}
+```
+
+### 调整阴影强度
+
+修改阴影变量：
+
 ```css
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #1abc9c;
-    --accent-color: #f39c12;
-    --pink-color: #e91e63;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 ```
 
 ### 添加新项目
 
-复制 `project-card` 结构并修改内容：
+复制 `project-card` 结构：
+
 ```html
 <div class="col-lg-4">
     <div class="project-card">
         <div class="project-header project-ai">
-            <h4 class="mb-0">🎯 你的项目</h4>
+            🎯 你的项目
         </div>
         <div class="project-body">
             <p>项目描述...</p>
-            <div class="mt-3">
-                <span class="tag tag-python">标签1</span>
-                <span class="tag tag-pytorch">标签2</span>
+            <div>
+                <span class="tag tag-blue">标签1</span>
+                <span class="tag tag-pink">标签2</span>
             </div>
         </div>
     </div>
 </div>
 ```
 
+### 创建新标签颜色
+
+在 `<style>` 中添加：
+
+```css
+.tag-custom {
+    background: #你的背景色;
+    color: #你的文字色;
+}
+```
+
+然后使用：
+
+```html
+<span class="tag tag-custom">新标签</span>
+```
+
+## 📱 浏览器兼容性
+
+- ✅ Safari（最佳体验）
+- ✅ Chrome
+- ✅ Firefox
+- ✅ Edge
+- ⚠️ IE 11（不支持 backdrop-filter）
+
+## 🌟 设计理念
+
+这个主页遵循 Apple 的设计原则：
+
+- **清晰**：内容层次分明，易于理解
+- **一致**：统一的视觉语言
+- **深度**：通过阴影和层次感创造深度
+- **简洁**：去除不必要的装饰
+- **专注**：突出重要内容
+
 ---
 
-© 2026 汤姆克兰德 | 用 ❤️ 和 AI 构建 | Web 2.0 风格
+© 2026 汤姆克兰德 | iOS 小清新风格

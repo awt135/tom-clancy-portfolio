@@ -3,258 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="汤姆克兰德 - AI 科技工作者 | 有趣的 AI 探索者">
-    <title>汤姆克兰德 🤖 | AI 科技工作者</title>
+    <meta name="description" content="汤姆克兰德 - AI 科技工作者">
+    <title>汤姆克兰德 | AI 科技工作者</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
         :root {
-            --primary-color: #3498db;
-            --secondary-color: #1abc9c;
-            --accent-color: #f39c12;
-            --pink-color: #e91e63;
-            --bg-gradient: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+            --bg-color: #f5f5f7;
+            --card-bg: #ffffff;
+            --primary-color: #007AFF;
+            --secondary-color: #5ac8fa;
+            --success-color: #34c759;
+            --warning-color: #ff9500;
+            --danger-color: #ff2d55;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg-gradient);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
             min-height: 100vh;
         }
 
+        /* iOS Style Navigation */
         .navbar {
-            background: linear-gradient(90deg, #3498db 0%, #1abc9c 100%) !important;
-            box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+            background: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: none;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: var(--shadow-sm);
         }
 
         .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--text-primary) !important;
         }
 
+        .nav-link {
+            color: var(--text-secondary) !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+            padding: 0.5rem 1rem !important;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.5rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        /* Hero Section */
         .hero-section {
-            background: white;
-            border-radius: 30px;
-            box-shadow: 0 10px 40px rgba(52, 152, 219, 0.15);
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-            padding: 3rem;
+            padding: 5rem 0 3rem;
             text-align: center;
         }
 
-        .profile-pic {
-            width: 180px;
-            height: 180px;
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #3498db 0%, #1abc9c 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 5rem;
-            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
-            border: 5px solid #fff;
+            font-size: 3rem;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-avatar:hover {
+            transform: scale(1.05);
         }
 
         .hero-title {
-            font-size: 2.8rem;
-            color: #2c3e50;
+            font-size: 2.5rem;
             font-weight: 700;
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
         }
 
         .hero-subtitle {
-            font-size: 1.4rem;
-            color: #7f8c8d;
+            font-size: 1.3rem;
+            color: var(--text-secondary);
             margin-bottom: 1rem;
-        }
-
-        .hero-location {
-            color: #3498db;
-            font-size: 1.1rem;
             font-weight: 500;
         }
 
-        .section-card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            margin-bottom: 2rem;
-            padding: 2.5rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+        .hero-location {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
         }
 
-        .section-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        /* iOS Style Cards */
+        .ios-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .ios-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
         }
 
         .section-title {
-            font-size: 2rem;
-            color: #3498db;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 1.8rem;
+            letter-spacing: -0.01em;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
         }
 
+        .section-title i {
+            color: var(--primary-color);
+        }
+
+        /* About Text */
         .about-text {
-            font-size: 1.15rem;
-            color: #555;
-            line-height: 2;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-weight: 400;
         }
 
-        .skill-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 15px;
-            padding: 1.8rem;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .skill-card:hover {
-            border-color: #3498db;
-            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2);
-        }
-
-        .skill-icon {
-            font-size: 2.5rem;
+        .about-text p {
             margin-bottom: 1rem;
         }
 
-        .skill-card h5 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #2c3e50;
+        /* Skill Cards - iOS Style */
+        .skill-item {
+            background: var(--bg-color);
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin-bottom: 1.2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .skill-item:hover {
+            background: white;
+            box-shadow: var(--shadow-md);
+            transform: translateX(8px);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-item h5 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
 
-        .skill-card p {
-            color: #7f8c8d;
+        .skill-item p {
+            color: var(--text-secondary);
             font-size: 0.95rem;
             margin: 0;
         }
 
+        /* Project Cards - iOS Style */
         .project-card {
-            border-radius: 15px;
+            background: white;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow-sm);
             margin-bottom: 1.5rem;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.04);
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
         }
 
         .project-header {
-            padding: 1.5rem;
+            padding: 1.5rem 2rem;
             color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
         }
 
-        .project-ai { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); }
-        .project-search { background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); }
-        .project-image { background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%); }
+        .project-ai { background: linear-gradient(135deg, var(--primary-color) 0%, #5ac8fa 100%); }
+        .project-search { background: linear-gradient(135deg, var(--success-color) 0%, #30d158 100%); }
+        .project-image { background: linear-gradient(135deg, var(--danger-color) 0%, #ff6482 100%); }
 
         .project-body {
-            padding: 1.5rem;
-            background: white;
+            padding: 1.8rem 2rem;
+        }
+
+        .project-body p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
         }
 
         .tag {
             display: inline-block;
             padding: 0.4rem 1rem;
-            border-radius: 20px;
+            border-radius: 12px;
             font-size: 0.85rem;
             font-weight: 500;
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
+            background: var(--bg-color);
+            color: var(--text-secondary);
         }
 
-        .tag-python { background: #e3f2fd; color: #1976d2; }
-        .tag-pytorch { background: #fce4ec; color: #c2185b; }
-        .tag-nlp { background: #e8f5e9; color: #388e3c; }
-        .tag-ml { background: #fff3e0; color: #f57c00; }
-        .tag-cv { background: #f3e5f5; color: #7b1fa2; }
+        .tag-blue { background: #e3f2fd; color: var(--primary-color); }
+        .tag-green { background: #e8f5e9; color: var(--success-color); }
+        .tag-orange { background: #fff3e0; color: var(--warning-color); }
+        .tag-pink { background: #fce4ec; color: var(--danger-color); }
 
+        /* Contact Buttons - iOS Style */
         .contact-btn {
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s;
-            text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            margin: 0.5rem;
+            gap: 0.6rem;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 1rem;
+            text-decoration: none;
+            margin: 0.4rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
         }
 
         .contact-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
-        .btn-email { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; }
-        .btn-github { background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%); color: white; }
-        .btn-linkedin { background: linear-gradient(135deg, #0077b5 0%, #005885 100%); color: white; }
-        .btn-twitter { background: linear-gradient(135deg, #1da1f2 0%, #0d8bd9 100%); color: white; }
+        .btn-email { background: var(--primary-color); color: white; }
+        .btn-github { background: var(--text-primary); color: white; }
+        .btn-linkedin { background: #0077b5; color: white; }
+        .btn-twitter { background: #1da1f2; color: white; }
 
+        /* Footer - iOS Style */
         footer {
             background: white;
-            padding: 2rem;
+            padding: 3rem 0;
             text-align: center;
-            border-radius: 30px 30px 0 0;
-            margin-top: 3rem;
-            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+            margin-top: 4rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .footer-text {
-            color: #7f8c8d;
-            font-size: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
         }
 
-        .fun-emoji {
-            display: inline-block;
-            animation: bounce 1s infinite;
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
         }
 
-        .highlight {
-            background: linear-gradient(120deg, #3498db 0%, #1abc9c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
-        }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2rem;
             }
-            .section-card {
-                padding: 1.5rem;
-            }
-            .hero-section {
+            .ios-card {
                 padding: 2rem 1.5rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <i class="bi bi-robot"></i> 汤姆克兰德
+                <i class="bi bi-robot me-2"></i>汤姆克兰德
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -278,108 +363,106 @@
         </div>
     </nav>
 
-    <div class="container mt-5 pt-5">
+    <div class="container">
         <!-- Hero Section -->
-        <div class="hero-section">
-            <div class="profile-pic">🤖</div>
-            <h1 class="hero-title">你好，我是汤姆克兰德！<span class="fun-emoji">👋</span></h1>
-            <p class="hero-subtitle">AI 科技工作者 | 永远好奇的探索者</p>
-            <p class="hero-location">
-                <i class="bi bi-geo-alt-fill"></i> 纽约市，梦想开始的地方
+        <section class="hero-section">
+            <div class="profile-avatar animate-in">🤖</div>
+            <h1 class="hero-title animate-in delay-1">你好，我是汤姆克兰德</h1>
+            <p class="hero-subtitle animate-in delay-2">AI 科技工作者</p>
+            <p class="hero-location animate-in delay-3">
+                <i class="bi bi-geo-alt"></i> 纽约市
             </p>
-        </div>
+        </section>
 
         <!-- About Section -->
-        <section id="about" class="section-card">
+        <section id="about" class="ios-card animate-in delay-4">
             <h2 class="section-title">
-                <i class="bi bi-person-hearts text-primary"></i>
+                <i class="bi bi-person"></i>
                 关于我
             </h2>
             <div class="about-text">
                 <p>
-                    嘿！很高兴遇见你！🙌 我是一名热爱 AI 的科技工作者，每天都在探索深度学习和自然语言处理的奇妙世界。
+                    我是一名热爱 AI 的科技工作者，专注于深度学习和自然语言处理领域。
                 </p>
-                <br>
                 <p>
-                    我相信 AI 不仅仅是代码和算法，更是改变世界的魔法！✨ 致力于将复杂的 AI 技术转化为简单有趣的工具，让每个人都能享受科技带来的便利。
+                    致力于将复杂的 AI 技术转化为简单实用的解决方案，推动人工智能在日常生活中的应用。
                 </p>
-                <br>
                 <p>
-                    工作之余，我喜欢研究最新的 AI 论文，也会和朋友讨论未来科技的发展方向。学习永无止境，对吧？🚀
+                    我相信人工智能将重塑我们的未来，而我希望成为这场变革的参与者和推动者。
                 </p>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="section-card">
+        <section id="skills" class="ios-card">
             <h2 class="section-title">
-                <i class="bi bi-stars text-primary"></i>
-                我的超能力
+                <i class="bi bi-lightning-charge"></i>
+                技能
             </h2>
             <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <div class="skill-card">
+                <div class="col-md-6">
+                    <div class="skill-item">
                         <div class="skill-icon">🧠</div>
                         <h5>深度学习</h5>
-                        <p>神经网络、CNN、RNN、Transformer - 用数据构建智慧的殿堂</p>
+                        <p>神经网络、CNN、RNN、Transformer</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="skill-card">
+                <div class="col-md-6">
+                    <div class="skill-item">
                         <div class="skill-icon">💬</div>
                         <h5>自然语言处理</h5>
-                        <p>文本分析、语义理解、对话系统 - 让机器听懂人类语言</p>
+                        <p>文本分析、语义理解、对话系统</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="skill-card">
+                <div class="col-md-6">
+                    <div class="skill-item">
                         <div class="skill-icon">🔍</div>
                         <h5>机器学习</h5>
-                        <p>监督学习、无监督学习、强化学习 - 从数据中发现规律</p>
+                        <p>监督学习、无监督学习、强化学习</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="skill-card">
+                <div class="col-md-6">
+                    <div class="skill-item">
                         <div class="skill-icon">💻</div>
                         <h5>编程语言</h5>
-                        <p>Python、PyTorch、TensorFlow - 用代码编织梦想</p>
+                        <p>Python、PyTorch、TensorFlow</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="skill-card">
+                <div class="col-md-6">
+                    <div class="skill-item">
                         <div class="skill-icon">🤖</div>
                         <h5>计算机视觉</h5>
-                        <p>图像识别、目标检测、图像生成 - 让机器"看见"世界</p>
+                        <p>图像识别、目标检测、图像生成</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="skill-card">
+                <div class="col-md-6">
+                    <div class="skill-item">
                         <div class="skill-icon">📊</div>
                         <h5>数据科学</h5>
-                        <p>数据分析、可视化、数据挖掘 - 从数据中挖掘价值</p>
+                        <p>数据分析、可视化、数据挖掘</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="section-card">
+        <section id="projects" class="ios-card">
             <h2 class="section-title">
-                <i class="bi bi-lightbulb-fill text-primary"></i>
-                我的项目
+                <i class="bi bi-folder"></i>
+                项目
             </h2>
             <div class="row">
                 <div class="col-lg-4">
                     <div class="project-card">
                         <div class="project-header project-ai">
-                            <h4 class="mb-0">🤖 AI 聊天机器人</h4>
+                            🤖 AI 聊天机器人
                         </div>
                         <div class="project-body">
-                            <p>基于 Transformer 架构的智能对话系统，支持多轮对话和上下文理解，让你的 AI 助手更懂你！</p>
-                            <div class="mt-3">
-                                <span class="tag tag-python">Python</span>
-                                <span class="tag tag-pytorch">PyTorch</span>
-                                <span class="tag tag-nlp">NLP</span>
+                            <p>基于 Transformer 架构的智能对话系统，支持多轮对话和上下文理解。</p>
+                            <div>
+                                <span class="tag tag-blue">Python</span>
+                                <span class="tag tag-pink">PyTorch</span>
+                                <span class="tag tag-green">NLP</span>
                             </div>
                         </div>
                     </div>
@@ -387,14 +470,14 @@
                 <div class="col-lg-4">
                     <div class="project-card">
                         <div class="project-header project-search">
-                            <h4 class="mb-0">🔎 智能搜索引擎</h4>
+                            🔎 智能搜索引擎
                         </div>
                         <div class="project-body">
-                            <p>利用机器学习算法优化搜索结果排序，提供更精准的检索体验，让信息触手可及！</p>
-                            <div class="mt-3">
-                                <span class="tag tag-python">ElasticSearch</span>
-                                <span class="tag tag-ml">ML</span>
-                                <span class="tag tag-nlp">Ranking</span>
+                            <p>利用机器学习算法优化搜索结果排序，提供更精准的检索体验。</p>
+                            <div>
+                                <span class="tag tag-blue">ElasticSearch</span>
+                                <span class="tag tag-orange">ML</span>
+                                <span class="tag tag-green">Ranking</span>
                             </div>
                         </div>
                     </div>
@@ -402,14 +485,14 @@
                 <div class="col-lg-4">
                     <div class="project-card">
                         <div class="project-header project-image">
-                            <h4 class="mb-0">🎨 AI 图像生成器</h4>
+                            🎨 AI 图像生成器
                         </div>
                         <div class="project-body">
-                            <p>基于 GAN 模型的图像生成工具，可创建高质量的艺术作品，释放你的创意无限可能！</p>
-                            <div class="mt-3">
-                                <span class="tag tag-pytorch">GAN</span>
-                                <span class="tag tag-cv">Computer Vision</span>
-                                <span class="tag tag-ml">Art</span>
+                            <p>基于 GAN 模型的图像生成工具，可创建高质量的艺术作品。</p>
+                            <div>
+                                <span class="tag tag-pink">GAN</span>
+                                <span class="tag tag-blue">Computer Vision</span>
+                                <span class="tag tag-orange">Art</span>
                             </div>
                         </div>
                     </div>
@@ -418,13 +501,13 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section-card">
+        <section id="contact" class="ios-card">
             <h2 class="section-title">
-                <i class="bi bi-envelope-heart text-primary"></i>
-                找我聊聊
+                <i class="bi bi-envelope"></i>
+                联系
             </h2>
-            <p class="text-center mb-4" style="font-size: 1.2rem; color: #7f8c8d;">
-                想聊 AI？想合作？还是只是打个招呼？随时欢迎！📩
+            <p class="text-center mb-4" style="color: var(--text-secondary); font-size: 1.1rem;">
+                想聊 AI？想合作？随时欢迎
             </p>
             <div class="text-center">
                 <a href="mailto:tom.clancy@example.com" class="contact-btn btn-email">
@@ -446,10 +529,10 @@
     <!-- Footer -->
     <footer>
         <p class="footer-text">
-            用 <span class="highlight">❤️</span> 和 AI 构建 | © 2026 汤姆克兰德
+            © 2026 汤姆克兰德
         </p>
-        <p class="mt-2" style="color: #95a5a6; font-size: 0.9rem;">
-            <i class="bi bi-code-slash"></i> Powered by Bootstrap 5
+        <p class="mt-2" style="color: var(--text-secondary); font-size: 0.85rem; opacity: 0.7;">
+            <i class="bi bi-code-slash me-1"></i>Built with Bootstrap 5
         </p>
     </footer>
 
@@ -460,41 +543,38 @@
 
     <script>
         $(document).ready(function() {
+            // Navbar scroll effect
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 50) {
+                    $('.navbar').addClass('scrolled');
+                } else {
+                    $('.navbar').removeClass('scrolled');
+                }
+            });
+
             // Smooth scrolling for navigation links
             $('a[href^="#"]').on('click', function(e) {
                 e.preventDefault();
                 const target = $(this.getAttribute('href'));
                 if (target.length) {
                     $('html, body').stop().animate({
-                        scrollTop: target.offset().top - 70
-                    }, 800);
+                        scrollTop: target.offset().top - 80
+                    }, 600);
                 }
             });
 
-            // Add animation on scroll
-            $('.section-card').each(function() {
-                $(this).css('opacity', '0').css('transform', 'translateY(30px)');
-            });
-
+            // Animate elements on scroll
             $(window).scroll(function() {
-                $('.section-card').each(function() {
-                    const sectionTop = $(this).offset().top;
+                $('.ios-card').each(function() {
+                    const cardTop = $(this).offset().top;
                     const scrollPos = $(window).scrollTop() + $(window).height();
 
-                    if (scrollPos > sectionTop + 100) {
-                        $(this).css('transition', 'all 0.6s ease-out');
+                    if (scrollPos > cardTop + 50) {
                         $(this).css('opacity', '1');
                         $(this).css('transform', 'translateY(0)');
                     }
                 });
             });
-
-            // Trigger initial animation for hero section
-            setTimeout(function() {
-                $('.hero-section').css('transition', 'all 0.6s ease-out');
-                $('.hero-section').css('opacity', '1');
-                $('.hero-section').css('transform', 'translateY(0)');
-            }, 100);
         });
     </script>
 </body>
